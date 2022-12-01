@@ -4,14 +4,14 @@ import DialogItem from "./DialogItem/DialogItem";
 import {sendMessageCreate, updateNewMessageBodyCreate} from "../../redux/dialogs-reducer";
 
 const Dialogs = (props) => {
-    let state = props.store.getState().messagesPage;
-    let newMessageBody = state.newMessageBody;
+    let state = props.messagePage;
+
     let onSendMessageClick = () => {
-        props.store.dispatch(sendMessageCreate())
+        props.sendMessage()
     }
     let onNewMessageChange = (e) => {
         let body = e.target.value;
-        props.store.dispatch(updateNewMessageBodyCreate(body))
+        props.updateNewMessageBody(body)
     }
 
     return(
@@ -32,7 +32,7 @@ const Dialogs = (props) => {
                     }
                 </div>
                 <div>
-                    <textarea value={newMessageBody}
+                    <textarea value={state.newMessageBody}
                               onChange={onNewMessageChange}
                               placeholder="Enter your message"></textarea>
                 </div>

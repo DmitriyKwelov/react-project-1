@@ -10,6 +10,9 @@ const Nav = () => {
                 <NavLink to="/dialogs" className={(navData) => navData.isActive ? `${s.activeLink}` : "" }>Messages</NavLink>
             </div>
             <div className={s.item}>
+                <NavLink to="/users" className={(navData) => navData.isActive ? `${s.activeLink}` : "" }>Users</NavLink>
+            </div>
+            <div className={s.item}>
                 <NavLink to="/news">News</NavLink>
             </div>
             <div className={s.item}>

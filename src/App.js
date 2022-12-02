@@ -2,10 +2,9 @@ import './App.css';
 import Header from './componnents/Header/Header';
 import Nav from './componnents/Nav/Nav';
 import Profile from './componnents/Profile/Profile';
-import Dialogs from './componnents/Dialogs/Dialogs';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import {updateNewPostText} from "./redux/store";
 import DialogsContainer from "./componnents/Dialogs/DialogsContainer";
+import UsersContainer from "./componnents/Users/UsersContainer";
 
 function App(props) {
   return (
@@ -17,6 +16,7 @@ function App(props) {
           <Routes>
             <Route path="/dialogs/*" element={<DialogsContainer />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/users" element={<UsersContainer />} />
           </Routes>
         </div>
       </div>

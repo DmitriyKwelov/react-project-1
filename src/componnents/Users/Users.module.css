@@ -8,6 +8,7 @@
 }
 .pagination{
     display: flex;
+    flex-wrap: wrap;
 }
 .paginationItem{
     padding: 5px 10px;

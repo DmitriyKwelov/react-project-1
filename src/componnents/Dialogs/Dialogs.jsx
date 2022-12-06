@@ -1,7 +1,7 @@
 import s from './Dialogs.module.css';
 import Message from "./Massage/Massage";
 import DialogItem from "./DialogItem/DialogItem";
-import {sendMessageCreate, updateNewMessageBodyCreate} from "../../redux/dialogs-reducer";
+import { Navigate } from "react-router-dom";
 
 const Dialogs = (props) => {
     let state = props.messagePage;
@@ -13,7 +13,6 @@ const Dialogs = (props) => {
         let body = e.target.value;
         props.updateNewMessageBody(body)
     }
-
     return(
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>

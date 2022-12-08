@@ -1,19 +1,16 @@
 import s from './Dialogs.module.css';
 import Message from "./Massage/Massage";
 import DialogItem from "./DialogItem/DialogItem";
-import { Navigate } from "react-router-dom";
+import {Navigate} from "react-router-dom";
+import AddMessageForm from "./AddMessageForm/AddMessageForm";
 
 const Dialogs = (props) => {
     let state = props.messagePage;
 
-    let onSendMessageClick = () => {
-        props.sendMessage()
+    let addNewMessage = (value) => {
+        props.sendMessage(value.newMessageBody);
     }
-    let onNewMessageChange = (e) => {
-        let body = e.target.value;
-        props.updateNewMessageBody(body)
-    }
-    return(
+    return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
                 {
@@ -30,14 +27,7 @@ const Dialogs = (props) => {
                         )
                     }
                 </div>
-                <div>
-                    <textarea value={state.newMessageBody}
-                              onChange={onNewMessageChange}
-                              placeholder="Enter your message"></textarea>
-                </div>
-                <div>
-                    <button onClick={() => {onSendMessageClick()}}>Send</button>
-                </div>
+               <AddMessageForm onSubmit={addNewMessage}/>
             </div>
         </div>
     )

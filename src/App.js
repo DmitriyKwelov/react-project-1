@@ -18,7 +18,7 @@ function App(props) {
             <Route path="/dialogs/*" element={<DialogsContainer />} />
             <Route path="/profile/:id" element={<ProfileContainer />} />
             <Route path="/users" element={<UsersContainer />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage/>} />
           </Routes>
         </div>
       </div>

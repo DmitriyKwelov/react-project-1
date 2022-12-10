@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import Profile from "./Profile";
 import {connect} from "react-redux";
 import {getStatus, getUsersProfile, updateStatus} from "../../redux/profile-reducer";
@@ -17,7 +16,7 @@ class ProfileContainer extends React.Component{
     componentDidMount() {
         let userId = this.props.router.params.id;
         if(!userId) {
-            userId = 2;
+            userId = this.props.authorizedUserId;
         }
         this.props.getUsersProfile(userId);
         this.props.getStatus(userId);
@@ -33,6 +32,8 @@ class ProfileContainer extends React.Component{
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile,
     status: state.profilePage.status,
+    authorizedUserId: state.auth.userId,
+    isAuth: state.auth.isAuth
 })
 
 function withRouter(ProfileContainer) {

@@ -15,8 +15,14 @@ class ProfileContainer extends React.Component{
 
     componentDidMount() {
         let userId = this.props.router.params.id;
+        debugger
         if(!userId) {
             userId = this.props.authorizedUserId;
+        }
+        debugger
+        if(!userId) {
+            debugger
+            return <Navigate to={"/login"}/>
         }
         this.props.getUsersProfile(userId);
         this.props.getStatus(userId);
@@ -54,5 +60,5 @@ function withRouter(ProfileContainer) {
 export default compose(
     connect(mapStateToProps, {getUsersProfile, getStatus, updateStatus}),
     withRouter,
-    // withAuthRedirect
+    withAuthRedirect
     )(ProfileContainer);

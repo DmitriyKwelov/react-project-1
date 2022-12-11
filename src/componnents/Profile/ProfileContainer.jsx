@@ -15,13 +15,10 @@ class ProfileContainer extends React.Component{
 
     componentDidMount() {
         let userId = this.props.router.params.id;
-        debugger
         if(!userId) {
             userId = this.props.authorizedUserId;
         }
-        debugger
         if(!userId) {
-            debugger
             return <Navigate to={"/login"}/>
         }
         this.props.getUsersProfile(userId);

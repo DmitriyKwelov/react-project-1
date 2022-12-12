@@ -3,10 +3,9 @@ import Post from './Post/Post';
 import React from "react";
 import AddNewPostForm from "./AddNewPostForm/AddNewPostForm";
 
-const MyPosts = (props) => {
-
+const MyPosts = React.memo(props => {
+    console.log(props)
     let onAddPost = (values) => {
-        debugger
         props.addPost(values.newPostText);
     }
 
@@ -14,7 +13,7 @@ const MyPosts = (props) => {
         <div className={s.postBlock}>
             <h3>My posts</h3>
             <div>
-                <AddNewPostForm onSubmit={onAddPost} />
+                <AddNewPostForm onSubmit={onAddPost}/>
             </div>
             <div className={s.posts}>
                 {
@@ -25,6 +24,6 @@ const MyPosts = (props) => {
             </div>
         </div>
     )
-}
+});
 
 export default MyPosts;

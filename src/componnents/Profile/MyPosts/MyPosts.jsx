@@ -4,7 +4,6 @@ import React from "react";
 import AddNewPostForm from "./AddNewPostForm/AddNewPostForm";
 
 const MyPosts = React.memo(props => {
-    console.log(props)
     let onAddPost = (values) => {
         props.addPost(values.newPostText);
     }

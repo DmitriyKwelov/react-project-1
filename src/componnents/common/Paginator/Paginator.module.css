@@ -1,0 +1,12 @@
+.selectedPage{
+    font-weight: bold;
+}
+.pagination{
+    display: flex;
+    flex-wrap: wrap;
+}
+.paginationItem{
+    padding: 5px 10px;
+    border: black 1px solid;
+    cursor: pointer;
+}

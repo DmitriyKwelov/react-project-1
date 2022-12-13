@@ -1,6 +1,6 @@
 import './App.css';
 import Nav from './componnents/Nav/Nav';
-import {BrowserRouter, Routes, Route, useLocation, useNavigate, useParams} from "react-router-dom"
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 import DialogsContainer from "./componnents/Dialogs/DialogsContainer";
 import UsersContainer from "./componnents/Users/UsersContainer";
 import ProfileContainer from "./componnents/Profile/ProfileContainer";

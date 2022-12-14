@@ -37,5 +37,5 @@ test(`after deleting length shouldn't be decrement if is id incorrect`, () => {
     // 2. action
     let newState = profileReducer(state, action);
     // 3.expectation
-    expect(newState.posts.length).toBe(2);
+    expect(newState.posts.length).toBe(2 );
 });

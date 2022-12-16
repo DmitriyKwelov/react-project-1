@@ -1,6 +1,6 @@
 import './App.css';
 import Nav from './componnents/Nav/Nav';
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import {HashRouter, Routes, Route} from "react-router-dom"
 import UsersContainer from "./componnents/Users/UsersContainer";
 import HeaderContainer from "./componnents/Header/HeaderContainer";
 import LoginPage from "./componnents/Login/Login";
@@ -24,7 +24,7 @@ class App extends Component {
       return <Preloader/>
     }
     return (
-        <BrowserRouter>
+        <HashRouter>
           <div className="app-wrapper">
             <HeaderContainer/>
             <Nav/>
@@ -40,7 +40,7 @@ class App extends Component {
               </Suspense>
             </div>
           </div>
-        </BrowserRouter>
+        </HashRouter>
     );
   }
 }

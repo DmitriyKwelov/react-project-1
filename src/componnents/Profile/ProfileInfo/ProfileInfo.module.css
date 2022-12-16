@@ -1,6 +1,6 @@
-.banner{
-    width: 100%;
-}
 .descriptionBlock{
     padding: 10px;
+}
+.MainPhoto{
+    max-width: 200px;
 }

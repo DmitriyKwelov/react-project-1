@@ -1,6 +1,6 @@
 import './App.css';
 import Nav from './componnents/Nav/Nav';
-import {HashRouter, Routes, Route} from "react-router-dom"
+import {HashRouter, Routes, Route, Navigate} from "react-router-dom"
 import UsersContainer from "./componnents/Users/UsersContainer";
 import HeaderContainer from "./componnents/Header/HeaderContainer";
 import LoginPage from "./componnents/Login/Login";
@@ -15,8 +15,16 @@ const DialogsContainer = React.lazy(() => import('./componnents/Dialogs/DialogsC
 // import DialogsContainer from "./componnents/Dialogs/DialogsContainer";
 
 class App extends Component {
+  catchAllUnhandledErrors = (promiseRejectionEvent) => {
+    alert("Some error occured")
+    //console.error(promiseRejectionEvent);
+  }
   componentDidMount() {
     this.props.initializeApp();
+    window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors);
   }
 
   render() {
@@ -31,11 +39,13 @@ class App extends Component {
             <div className='app-wrapper-content'>
               <Suspense fallback={<div><Preloader /></div>}>
               <Routes>
+                <Route path="/" element={<Navigate to="/profile" />} />
                 <Route path="/profile" element={<ProfileContainer/>}/>
                 <Route path="/dialogs/*" element={<DialogsContainer/>}/>
                 <Route path="/profile/:id" element={<ProfileContainer/>}/>
                 <Route path="/users" element={<UsersContainer/>}/>
                 <Route path="/login" element={<LoginPage/>}/>
+                <Route path="*" element={<dib>404 NOT FOUND</dib>}/>
               </Routes>
               </Suspense>
             </div>

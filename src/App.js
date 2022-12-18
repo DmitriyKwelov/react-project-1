@@ -6,8 +6,8 @@ import HeaderContainer from "./componnents/Header/HeaderContainer";
 import LoginPage from "./componnents/Login/Login";
 import React, {Component, Suspense } from "react";
 import {connect} from "react-redux";
-import {initializeApp} from "./redux/app-reducer";
 import Preloader from "./componnents/common/Preloader/Preloader";
+import {initializeApp} from "./redux/app-reducer.ts";
 
 // import ProfileContainer from "./componnents/Profile/ProfileContainer";
 const ProfileContainer = React.lazy(() => import('./componnents/Profile/ProfileContainer'));
